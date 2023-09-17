@@ -1,0 +1,1 @@
+The files in directory "addons" don't belong to me. They are provided as CC0 assets in the Godot assets feature.
