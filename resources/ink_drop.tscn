@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bri0h756bx4wy"]
 
-[ext_resource type="Texture2D" uid="uid://capxsew5oycxs" path="res://resources/sprites/ink-drop.png" id="1_g4rv8"]
+[ext_resource type="Texture2D" uid="uid://capxsew5oycxs" path="res://sprites/ink-drop.png" id="1_g4rv8"]
 
 [node name="InkDrop" type="Sprite3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.024, 0)

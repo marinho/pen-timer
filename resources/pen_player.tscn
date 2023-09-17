@@ -1,23 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://drwnbkn6fpgrd"]
+[gd_scene load_steps=5 format=3 uid="uid://drwnbkn6fpgrd"]
 
 [ext_resource type="Script" path="res://scripts/PenPlayer.cs" id="1_0vorr"]
 [ext_resource type="PackedScene" uid="uid://of2omtxxhtbr" path="res://models/Pen.blend" id="2_ogjke"]
+[ext_resource type="Script" path="res://scripts/PenPlayerCollisionShape3D.cs" id="3_v36rc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_btpuj"]
 
-[node name="Pen Player" type="CharacterBody3D" node_paths=PackedStringArray("NorthDirection", "WestDirection")]
+[node name="Pen Player" type="CharacterBody3D"]
 script = ExtResource("1_0vorr")
-NorthDirection = NodePath("North Direction")
-WestDirection = NodePath("West Direction")
 
 [node name="Pen" parent="." instance=ExtResource("2_ogjke")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_btpuj")
-
-[node name="North Direction" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
-
-[node name="West Direction" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+script = ExtResource("3_v36rc")

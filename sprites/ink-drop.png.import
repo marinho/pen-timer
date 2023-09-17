@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://capxsew5oycxs"
-path.s3tc="res://.godot/imported/ink-drop.png-514a013dbe85f69076361e32995bbefa.s3tc.ctex"
+path.s3tc="res://.godot/imported/ink-drop.png-c3191d4ce3e2124ef9d17997422a74f0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://resources/sprites/ink-drop.png"
-dest_files=["res://.godot/imported/ink-drop.png-514a013dbe85f69076361e32995bbefa.s3tc.ctex"]
+source_file="res://sprites/ink-drop.png"
+dest_files=["res://.godot/imported/ink-drop.png-c3191d4ce3e2124ef9d17997422a74f0.s3tc.ctex"]
 
 [params]
 

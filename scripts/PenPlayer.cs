@@ -19,13 +19,16 @@ public partial class PenPlayer : CharacterBody3D
 	public NodePath InkParentPath;
 	[Export]
 	public float InkDropDistance = 0.1f;
-	[Export]
-	public Node3D NorthDirection;
-	[Export]
-	public Node3D WestDirection;
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+
+	// private constants for inputs
+	const string moveLeftInput = "move_left";
+	const string moveRightInput = "move_right";
+	const string moveForwardInput = "move_forward";
+	const string moveBackInput = "move_back";
+	const string uiAcceptInput = "ui_accept";
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -36,13 +39,14 @@ public partial class PenPlayer : CharacterBody3D
 			velocity.Y -= gravity * (float)delta;
 
 		// Handle Jump.
-		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
+		if (Input.IsActionJustPressed(uiAcceptInput) && IsOnFloor())
 			velocity.Y = JumpVelocity;
 
 		// Get the input direction and handle the movement/deceleration.
-		Vector2 inputDir = Input.GetVector("move_left", "move_right", "move_forward", "move_back");
+		Vector2 inputDir = Input.GetVector(moveLeftInput, moveRightInput, moveForwardInput, moveBackInput);
 		Vector2 skewedInputDir = new Vector2(inputDir.X, inputDir.Y);
 		
+		// TODO: fix this ugly code, either by using the direction of the camera, or by rotating the coordinates of the input
 		if ( inputDir.X != 0 && inputDir.Y != 0) {
 			if (inputDir.X < 0 && inputDir.Y < 0) {
 				skewedInputDir.X = inputDir.X;
@@ -108,7 +112,7 @@ public partial class PenPlayer : CharacterBody3D
 		GetNode<Node3D>(InkParentPath).AddChild(ink);
 
 		// print the number of children in InkParentPath
-		GD.Print(GetNode<Node3D>(InkParentPath).GetChildren().Count());
+		// GD.Print(GetNode<Node3D>(InkParentPath).GetChildren().Count());
 	}
 
 
